@@ -1,0 +1,46 @@
+@mixin h-1 {
+    font-weight: 700;
+    font-size: 64px;
+    line-height: 70px;
+}
+
+@mixin h-2 {
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 55px;
+}
+
+@mixin h-3 {
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 29px;
+}
+
+@mixin text {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 22px;
+}
+
+@mixin flex-start {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+@mixin flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@mixin flex-space {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+@mixin flex-column {
+    display: flex;
+    flex-direction: column;
+}

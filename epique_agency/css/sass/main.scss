@@ -1,0 +1,14 @@
+@import './abstracts/variables';
+@import './base/normalize';
+@import './base/colors';
+@import './base/fonts';
+@import './layout/layout-config';
+@import './layout/header';
+@import './layout/main';
+@import './layout/footer';
+// @import './pages/main';
+// @import './pages/pets';
+
+h1 {
+    color: red
+}

@@ -1,0 +1,728 @@
+.hero {
+    background-color: $color-black-xl;
+    width: 100%;
+    padding-top: 70px;
+    .hero-block {
+        background-image: url(../assets/svg/hero.svg);
+        background-repeat: no-repeat;
+        background-position: right;
+        padding: 126px 0 150px 0;
+        box-sizing: border-box;
+    }
+}
+
+.hero-text-block {
+    @include flex-column;
+    width: 580px;
+    .hero-title {
+        @include h-1;
+        font-family: $font-title;
+        color: $color-light-xl;
+    }
+    .hero-subtitle {
+        @include text;
+        font-family: $font-text;
+        color: $color-light-l;
+        margin-top: 45px;
+    }
+    .hero-btn {
+        width: 210px;
+        height: 46px;
+        border: none;
+        border-radius: 25px;
+        background: $color-primary;
+        margin-top: 45px;
+        font-family: $font-title;
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 17px;
+        letter-spacing: 0.06em;
+        color: $color-black-xl;
+        text-transform: uppercase;
+        transition: ease-in-out 0.5s;
+        cursor: pointer;
+        &:hover {
+            background: $color-primary-light;
+        }
+    }
+    
+}
+
+.about {
+    width: 100%;
+    padding: 130px 0 150px 0;
+    box-sizing: border-box;
+    .container {
+        @include flex-space;
+    }
+}
+
+.about-text-block {
+    width: 500px;
+    @include flex-column;
+    .about-title {
+        @include h-2;
+        font-family: $font-title; 
+        color: $color-black-xl;
+        margin-bottom: 53px;
+    }
+    .about-text {
+        @include text;
+        font-family: $font-text;
+        color: $color-light-m;
+        &:nth-child(2) {
+            margin-bottom: 25px;
+        }
+    }
+}
+
+.about-items-block {
+    width: 575px;
+    @include flex-column;
+    gap: 32px;
+    .about-item {
+        @include flex-space;
+        width: 100%;
+        padding: 24px 75px 21px 36px;
+        border: 1px dashed $color-light-m;
+        border-radius: 30px;
+        box-sizing: border-box;
+        transition: ease-in-out 0.5s;
+        cursor: pointer;
+        .about-item-text-block {
+            @include flex-column;
+            gap: 19px;
+            width: 320px;
+            .about-item-title {
+                @include h-3;
+                font-family: $font-title;
+                color: $color-black-xl;
+            }
+            .about-item-text {
+                @include text;
+                font-family: $font-text;
+                color: $color-light-m;
+            }
+        }
+        &:hover {
+            border: 1px solid $color-light-m;
+            box-shadow: 0px 0px 5px $color-primary;
+            .about-item-img {
+                transition: ease-in-out 0.5s;
+                transform: scale(1.1);
+            }
+        }
+    }
+}
+
+.numbers {
+    background-color: $color-black-xl;
+    width: 100%;
+    padding-top: 130px;
+    padding-bottom: 150px;
+    .numbers-title {
+        @include h-2;
+        font-family: $font-title;
+        color: $color-light-xl;
+        text-align: center;
+    }
+}
+
+.numbers-items-block {
+    @include flex-center;
+    gap: 120px;
+    margin-top: 70px;
+    position: relative;
+    .numbers-items-line {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        width: 100%;
+        height: 1px;
+        z-index: 0;
+    }
+    .numbers-item {
+        position: relative;
+        z-index: 1;
+        width: 180px;
+        height: 180px;
+        border: 1px solid $color-light-l;
+        border-radius: 50%;
+        padding: 10px;
+        box-sizing: border-box;
+        background: $color-black-xl;
+        .numbers-item-inner {
+            width: 160px;
+            height: 160px;
+            @include flex-column;
+            align-items: center;
+            justify-content: center;
+            gap: 2px;
+            border: 1px dashed $color-light-l;
+            border-radius: 50%;
+            box-sizing: border-box;
+            .numbers-item-title {
+                @include h-2;
+                font-family: $font-title;
+                color: $color-primary;
+            }
+            .numbers-item-text {
+                font-family: $font-text;
+                font-weight: 400;
+                font-size: 18px;
+                line-height: 25px;
+                color: $color-light-xl;
+                text-align: center;
+            }
+        }
+    }
+}
+
+.types {
+    width: 100%;
+    padding: 130px 0 0 0;
+    box-sizing: border-box;
+    .container {
+        @include flex-space;
+    }
+}
+
+.types-text-block {
+    @include flex-column;
+    width: 499px;
+    gap: 55px;
+    .types-title {
+        @include h-2;
+        font-family: $font-title;
+        color: $color-black-xl;
+    }
+    .types-text {
+        @include text;
+        font-family: $font-text;
+        color: $color-light-m;
+    }
+}
+
+.types-items-block {
+    @include flex-column;
+    width: 580px;
+    gap: 15px;
+    .types-item {
+        @include flex-column;
+        width: 100%;
+        position: relative;
+        border-bottom: 1px solid $color-black-xl;
+        padding-bottom: 15px;
+        box-sizing: border-box;
+        cursor: pointer;
+        .types-item-btn {
+            position: absolute;
+            top: 7px;
+            right: 0;
+            stroke: $color-black-xl;
+            transition: ease-in-out 0.3s;
+        }
+        .types-item-title {
+            @include h-3;
+            font-family: $font-title;
+            color: $color-black-xl;
+            box-sizing: border-box;
+            transition: ease-in-out 0.3s;
+        }
+        .types-item-text {
+            @include text;
+            font-family: $font-text;
+            color: $color-light-m;
+            box-sizing: border-box;
+            padding-top: 15px;
+            padding-bottom: 4px;
+        }
+        &:hover {
+            .types-item-title {
+                color: $color-primary;
+            }
+            .types-item-btn {
+                stroke: $color-primary;
+            }
+        }
+    }
+}
+
+.create {
+    width: 100%;
+    padding: 155px 0 150px 0;
+    box-sizing: border-box;
+    background-image: url(../assets/svg/create_back.svg);
+    background-repeat: no-repeat;
+    background-position: 750px 90px;
+    .container {
+        @include flex-column;
+    }
+}
+
+.create-text-block {
+    @include flex-column;
+    gap: 51px;
+    width: 500px;
+    .create-title {
+        @include h-2;
+        font-family: $font-title;
+        color: $color-black-xl;
+    }
+    .create-text {
+        @include text;
+        font-family: $font-text;
+        color: $color-light-m;
+    }
+}
+
+.create-items-container {
+    @include flex-start;
+    align-items: flex-start;
+    gap: 123px;
+    width: 100%;
+    background-image: url(../assets/svg/create_line.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: 20px 0;
+    padding-top: 42px;
+    padding-bottom: 30px;
+    margin-top: 40px;
+    box-sizing: border-box;
+    height: 423px;
+    .create-items-block {
+        @include flex-column;
+        gap: 26px;
+        width: 278px;
+        .create-item {
+            @include flex-start;
+            gap: 26px;
+            align-items: center;
+            height: 66px;
+            .create-item-title {
+                font-family: $font-title;
+                font-size: 32px;
+                line-height: 40px;
+                background-color: $color-light-xl;
+                color: $color-primary;
+            }
+            .create-item-text{
+                @include text;
+                font-family: $font-text;
+                color: $color-light-m;
+            }
+        }
+        &:nth-child(3) {
+            align-self: flex-end;
+            padding-bottom: 26px;
+            box-sizing: border-box;
+        }
+    }
+}
+
+.principles {
+    background-color: $color-black-xl;
+    width: 100%;
+    padding-top: 130px;
+    .container {
+        @include flex-space;
+    }
+}
+
+.principles-text-block {
+    @include flex-column;
+    gap: 24px;
+    width: 580px;
+    .principles-title {
+        @include h-2;
+        font-family: $font-title;
+        color: $color-light-xl;
+        width: 480px;
+        margin-bottom: 30px;
+    }
+    .principles-text {
+        @include text;
+        font-family: $font-text;
+        color: $color-light-l;
+    }
+}
+
+.principles-items-block {
+    @include flex-column;
+    width: 580px;
+    gap: 15px;
+    .principles-item {
+        @include flex-column;
+        width: 100%;
+        position: relative;
+        border-bottom: 1px solid $color-light-xl;
+        padding-bottom: 15px;
+        box-sizing: border-box;
+        cursor: pointer;
+        .principles-item-btn {
+            position: absolute;
+            top: 7px;
+            right: 0;
+            stroke: $color-light-xl;
+            transition: ease-in-out 0.3s;
+        }
+        .principles-item-title {
+            @include h-3;
+            font-family: $font-title;
+            color: $color-light-xl;
+            box-sizing: border-box;
+            transition: ease-in-out 0.3s;
+        }
+        .principles-item-text {
+            @include text;
+            font-family: $font-text;
+            color: $color-light-l;
+            box-sizing: border-box;
+            padding-top: 15px;
+            padding-bottom: 4px;
+        }
+        &:hover {
+            .principles-item-title {
+                color: $color-primary;
+            }
+            .principles-item-btn {
+                stroke: $color-primary;
+            }
+        }
+    }
+}
+
+.work {
+    background-color: $color-black-xl;
+    width: 100%;
+    padding-top: 154px;
+    padding-bottom: 150px;
+    .container {
+        @include flex-column;
+        .work-title {
+            @include h-2;
+            font-family: $font-title;
+            color: $color-light-xl;
+        }
+    }
+}
+
+.work-items-container {
+    @include flex-start;
+    align-items: flex-start;
+    gap: 120px;
+    width: 100%;
+    background-image: url(../assets/svg/work_back.svg);
+    background-repeat: no-repeat;
+    // background-size: 76%;
+    background-position: 20px 0;
+    padding-top: 36px;
+    padding-bottom: 57px;
+    margin-top: 60px;
+    box-sizing: border-box;
+    height: 260px;
+    .work-items-block {
+        @include flex-column;
+        gap: 40px;
+        width: 180px;
+        .work-item {
+            @include flex-start;
+            gap: 26px;
+            align-items: center;
+            height: 66px;
+            .work-item-title {
+                font-family: $font-title;
+                font-size: 32px;
+                line-height: 40px;
+                background-color: $color-black-xl;
+                color: $color-primary;
+            }
+            .work-item-text{
+                @include text;
+                font-family: $font-text;
+                color: $color-light-m;
+            }
+        }
+    }
+}
+
+.adv {
+    width: 100%;
+    padding: 130px 0 150px 0;
+    box-sizing: border-box;
+    .container {
+        @include flex-column;
+    }
+    .adv-title {
+        @include h-2;
+        font-family: $font-title;
+        color: $color-black-xl;
+        text-align: center;
+    }
+}
+
+.adv-items-block {
+    @include flex-center;
+    margin-top: 60px;
+    gap: 90px;
+    position: relative;
+    .adv-items-line {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        width: 100%;
+        height: 1px;
+        z-index: 0;
+    }
+    .adv-item {
+        position: relative;
+        z-index: 1;
+        width: 300px;
+        height: 300px;
+        border: 1px solid $color-black-xl;
+        box-sizing: border-box;
+        border-radius: 50%;
+        padding: 10px;
+        background: $color-light-xl;
+        .adv-item-inner {
+            width: 280px;
+            height: 280px;
+            @include flex-column;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            border: 1px dashed $color-light-l;
+            border-radius: 50%;
+            box-sizing: border-box; 
+            .adv-item-title {
+                @include h-3;
+                font-family: $font-title;
+                color: $color-black-xl;
+                margin-bottom: 10px;
+                text-align: center;
+            }
+            .adv-item-text {
+                @include text;
+                font-family: $font-text;
+                color: $color-light-m;
+                text-align: center;
+            }
+        }
+    }
+}
+
+.projects {
+    background-color: $color-black-xl;
+    width: 100%;
+    padding-top: 130px;
+    padding-bottom: 150px;
+    .projects-title {
+        @include h-2;
+        font-family: $font-title;
+        color: $color-light-xl;
+        text-align: center;
+    }
+}
+
+.projects-items-block {
+    @include flex-center;
+    row-gap: 20px;
+    column-gap: 16px;
+    margin-top: 61px;
+    flex-wrap: wrap;
+    .projects-item {
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        border-radius: 15px;
+        width: 380px;
+        height: 238px;
+        cursor: pointer;
+        .project-item-inner {
+            @include flex-column;
+            background: linear-gradient(0deg, rgba(16, 16, 16, 0.75), rgba(16, 16, 16, 0.75));
+            border: 2px solid $color-primary;
+            border-radius: 15px;
+            padding: 25px;
+            box-sizing: border-box;
+            transition: ease-in-out 0.5s;
+            opacity: 0;
+            width: 100%;
+            height: 100%;
+            .project-item-title {
+                @include h-3;
+                font-family: $font-title;
+                color: $color-light-xl;
+                margin-bottom: 9px;
+                opacity: 0;
+                transition: ease-in-out 0.5s;
+            }
+            .project-item-text {
+                @include text;
+                font-family: $font-text;
+                color: $color-light-xl;
+                opacity: 0;
+                transition: ease-in-out 0.5s;
+            }
+        }
+        &:hover {
+            .project-item-inner {
+                opacity: 1;
+            }
+            .project-item-title, .project-item-text {
+                opacity: 1;
+            }
+        }
+    }
+}
+
+.item-1 {
+    background-image: url(../assets/img/projects/1.png);
+}
+
+.item-2 {
+    background-image: url(../assets/img/projects/2.png);
+}
+
+.item-3 {
+    background-image: url(../assets/img/projects/3.png);
+}
+
+.item-4 {
+    background-image: url(../assets/img/projects/4.png);
+}
+
+.item-5 {
+    background-image: url(../assets/img/projects/5.png);
+}
+
+.item-6 {
+    background-image: url(../assets/img/projects/6.png);
+}
+
+.contacts {
+    width: 100%;
+    padding: 130px 0 91px 0;
+    box-sizing: border-box;
+    .container {
+        @include flex-start;
+        gap: 100px;
+        position: relative;
+        .contacts-background {
+            position: absolute;
+            right: 0;
+            bottom: -93px;
+            width: 415px;
+            height: 356px;
+        }
+    }
+}
+
+.contacts-form-block {
+    @include flex-column;
+    .contacts-title {
+        @include h-2;
+        font-family: $font-title;
+        color: $color-black-xl;
+    }
+    .contacts-form {
+        width: 580px;
+        margin-top: 78px;
+        .contacts-input-block {
+            @include flex-center;
+            gap: 20px;
+            flex-wrap: wrap;
+            input {
+                border: none;
+                background: transparent;
+                padding-bottom: 10px;
+                border-bottom: 1px solid $color-black-xl;
+                width: 280px;
+                height: 42px;
+                box-sizing: border-box;
+                outline: transparent;
+            }
+        }
+        textarea {
+            width: 580px;
+            height: 142px;
+            border: none;
+            border: 1px solid $color-black-xl;
+            // border-top: 1px solid $color-black-xl;
+            margin-top: 60px;
+            resize: none;
+            outline: transparent;
+            padding-top: 10px;
+            box-sizing: border-box;
+        }
+        ::placeholder {
+            @include text;
+            font-family: $font-text;
+            color: $color-light-m;
+        }
+        .contacts-form-send-block {
+            @include flex-center;
+            align-items: center;
+            margin-top: 44px;
+            .form-btn {
+                width: 171px;
+                height: 46px;
+                background-color: $color-primary;
+                border: none;
+                border-radius: 25px;
+                padding: 13px 32px;
+                box-sizing: border-box;
+                margin-right: 40px;
+                font-family: $font-title;
+                font-weight: 600;
+                font-size: 14px;
+                line-height: 17px;
+                text-align: center;
+                letter-spacing: 0.06em;
+                color: $color-light-xl;
+                text-transform: uppercase;
+                transition: ease-in-out 0.5s;
+                cursor: pointer;
+                &:hover {
+                    background: $color-primary-light;
+                }
+            }
+            .form-policy {
+                font-family: $font-text;
+                font-weight: 400;
+                font-size: 14px;
+                line-height: 19px;
+                color: $color-light-m;
+                width: 347px;
+            }
+        }
+    }
+}
+
+.contacts-items-block {
+    @include flex-column;
+    gap: 40px;
+    .contact-item {
+        @include flex-column;
+        gap: 10px;
+        .contacts-item-text {
+            @include text;
+            font-family: $font-text;
+            color: $color-light-m;
+        }
+        .contacts-item-title {
+            @include h-3;
+            font-family: $font-title;
+            color: $color-black-xl;
+        }
+    }
+    :last-child {
+        .contacts-item-title {
+            font-family: $font-title;
+            font-weight: 600;
+            font-size: 18px;
+            line-height: 22px;
+            color: $color-black-xl;
+        } 
+    }
+}

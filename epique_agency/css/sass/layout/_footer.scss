@@ -1,0 +1,82 @@
+.footer {
+    background: $color-black-xl;
+    padding: 54px 0 16px 0;
+    box-sizing: border-box;
+    .container {
+        @include flex-column;
+        gap: 15px;
+    }
+}
+
+.footer-block {
+    @include flex-space;
+    border-bottom: 1px solid $color-light-xl;
+    padding-bottom: 39px;
+    box-sizing: border-box;
+    .footer-nav-block {
+        @include flex-space;
+        width: 930px;
+        .footer-logo {
+            width: 138px;
+        }
+        .footer-menu-list {
+            @include flex-center;
+            width: 730px;
+            height: 54px;
+            gap: 44px;
+            padding-top: 17px;
+            box-sizing: border-box;
+            list-style-type: none;
+            .footer-menu-item {
+                .footer-menu-item-link {
+                    text-decoration: none;
+                    display: block;
+                    font-family: Gilroy;
+                    font-weight: 600;
+                    font-size: 14px;
+                    line-height: 17px;
+                    text-transform: uppercase;
+                    letter-spacing: 0.02em;
+                    color: $color-light-xl;
+                    cursor: pointer;
+                    transition: ease-in-out 0.5s;
+                }
+                &:hover .footer-menu-item-link {
+                    text-decoration: underline;
+                    color: $color-primary-light;
+                }
+                &:last-child {
+                    .footer-menu-item-link {
+                      color: $color-primary;  
+                    } 
+                }
+                &:last-child:hover {
+                    .footer-menu-item-link {
+                       color: $color-primary-red;
+                       text-decoration: none;
+                    }  
+                }
+            }
+        }
+    }
+    .footer-socials-block {
+        @include flex-start;
+        gap: 20px;
+        .footer-social {
+            cursor: pointer;
+        }
+    }
+}
+
+.rights-block {
+    padding-top: 15px;
+    .rights-text {
+        text-align: center;
+        font-family: $font-text;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 19px;
+        color: $color-light-l;
+    }
+
+}

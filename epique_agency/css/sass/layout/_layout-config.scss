@@ -1,0 +1,16 @@
+.container {
+    width: 1180px;
+    margin: 0 auto;
+}
+
+.blackout {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    justify-content: center;
+    align-items: center;
+    background: rgba(16, 16, 16, 0.75);
+}
