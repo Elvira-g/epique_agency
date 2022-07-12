@@ -1,17 +1,22 @@
 .container {
-    // width: 1180px;
-    width: 82%;
-    margin: 0 auto;
+	max-width: 1160px;
+	padding: 0px 20px;
+	margin: 0 auto;
+}
+
+.wrapper {
+	min-height: 100%;
+	overflow: hidden;
 }
 
 .blackout {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    justify-content: center;
-    align-items: center;
-    background: rgba(16, 16, 16, 0.75);
+	display: none;
+	position: fixed;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	justify-content: center;
+	align-items: center;
+	background: rgba(16, 16, 16, 0.75);
 }
