@@ -10,6 +10,12 @@
         width: 100%;
         z-index: 10;
     }
+    @media (max-width: 768px) {
+        height: 60px;
+        @media(max-width: 600px) {
+            background-color: #550044;
+        }
+    }
 }
 
 .nav {
@@ -41,9 +47,13 @@
         }
     }
     .menu-list {
-        @include flex-center;
-        width: 730px;
-        gap: 44px;
+        @include flex-space;
+        width: 62%;
+        height: 70px;
+        padding-top: 5px;
+        box-sizing: border-box;
+        // width: 730px;
+        // gap: 44px;
         list-style-type: none;
         .menu-item {
             .menu-item-link {
@@ -82,7 +92,7 @@
     }
     .call-block {
         @include flex-space;
-        width: 168px;
+        width: 157px;
         cursor: pointer;
         .call-icon {
             fill: $color-primary;
