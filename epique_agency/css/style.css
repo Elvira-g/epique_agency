@@ -360,6 +360,10 @@ h1, h2, h3, h4, h5, p, a, ul, li, button {
   padding: 0;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 .container {
   max-width: 1160px;
   padding: 0px 20px;
@@ -499,10 +503,10 @@ h1, h2, h3, h4, h5, p, a, ul, li, button {
   text-decoration: underline;
   color: #ffca60;
 }
-.nav .menu-list .menu-item:last-child .menu-item-link {
+.nav .menu-list .menu-item:nth-child(5) .menu-item-link {
   color: #ffa800;
 }
-.nav .menu-list .menu-item:last-child:hover .menu-item-link {
+.nav .menu-list .menu-item:nth-child(5):hover .menu-item-link {
   color: #ff0000;
   text-decoration: none;
 }
@@ -511,7 +515,7 @@ h1, h2, h3, h4, h5, p, a, ul, li, button {
     margin-bottom: 30px;
   }
 }
-@media screen and (max-height: 569px) {
+@media (max-height: 569px) and (max-width: 320px) {
   .nav .menu-list .menu-item:not(:last-child) {
     margin-bottom: 15px;
   }
@@ -596,7 +600,10 @@ h1, h2, h3, h4, h5, p, a, ul, li, button {
   fill: #ffa800;
   transition: ease-in-out 0.5s;
 }
-.nav .call-block .call-number {
+.nav .call-block .call-number,
+.nav .call-block .call-number:visited {
+  text-decoration: none;
+  display: block;
   font-family: Gilroy;
   font-weight: 600;
   font-size: 18px;
@@ -605,7 +612,8 @@ h1, h2, h3, h4, h5, p, a, ul, li, button {
   transition: ease-in-out 0.5s;
 }
 @media screen and (max-width: 1024px) {
-  .nav .call-block .call-number {
+  .nav .call-block .call-number,
+.nav .call-block .call-number:visited {
     font-size: 15px;
   }
 }
@@ -613,7 +621,6 @@ h1, h2, h3, h4, h5, p, a, ul, li, button {
   fill: #ffca60;
 }
 .nav .call-block:hover .call-number {
-  text-decoration: underline;
   color: #ffca60;
 }
 
@@ -2010,6 +2017,11 @@ h1, h2, h3, h4, h5, p, a, ul, li, button {
   flex-wrap: wrap;
 }
 .contacts-form-block .contacts-form .contacts-input-block input {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 22px;
+  font-family: Nunito;
+  color: #777777;
   border: none;
   background: transparent;
   padding-bottom: 10px;
@@ -2023,6 +2035,8 @@ h1, h2, h3, h4, h5, p, a, ul, li, button {
   .contacts-form-block .contacts-form .contacts-input-block input {
     width: 100%;
     height: 29px;
+    font-size: 14px;
+    line-height: 19px;
   }
 }
 .contacts-form-block .contacts-form .contacts-input-block .error {
@@ -2046,17 +2060,20 @@ h1, h2, h3, h4, h5, p, a, ul, li, button {
   }
 }
 .contacts-form-block .contacts-form textarea {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 22px;
+  font-family: Nunito;
+  color: #777777;
   width: 580px;
   height: 142px;
   border: none;
   border: none;
-  margin-top: 60px;
+  margin-top: 30px;
   resize: none;
   outline: transparent;
   padding-top: 10px;
   box-sizing: border-box;
-}
-.contacts-form-block .contacts-form textarea:focus {
   border: 1px solid #101010;
 }
 .contacts-form-block .contacts-form textarea::placeholder {
@@ -2171,6 +2188,8 @@ h1, h2, h3, h4, h5, p, a, ul, li, button {
   color: #777777;
 }
 .contacts-items-block .contact-item .contacts-item-title {
+  text-decoration: none;
+  display: block;
   font-weight: 600;
   font-size: 24px;
   line-height: 29px;
@@ -2254,6 +2273,21 @@ h1, h2, h3, h4, h5, p, a, ul, li, button {
 }
 
 .popup-content {
+  display: none;
+  background: #ffffff;
+  border-radius: 30px;
+  max-width: 780px;
+  width: 100%;
+  padding: 70px 100px;
+  box-sizing: border-box;
+  max-width: 780px;
+  overflow: auto;
+  z-index: 120;
+  position: relative;
+}
+
+.form-popup-content {
+  display: none;
   background: #ffffff;
   border-radius: 30px;
   max-width: 780px;
@@ -2271,6 +2305,21 @@ h1, h2, h3, h4, h5, p, a, ul, li, button {
   right: 30px;
   cursor: pointer;
   top: 30px;
+}
+
+.form-popup-close {
+  position: absolute;
+  right: 30px;
+  cursor: pointer;
+  top: 30px;
+}
+
+.form-popup-text {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 29px;
+  font-family: Gilroy;
+  color: #777777;
 }
 
 .popup-check {

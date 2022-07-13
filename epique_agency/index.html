@@ -24,11 +24,11 @@
                             </svg>
                         </a>    
                         <ul class="menu-list">
-                            <li class="menu-item"><a href="" class="menu-item-link">О КОМПАНИИ</a></li>
-                            <li class="menu-item"><a href="" class="menu-item-link">Разработка сайтов</a></li>
-                            <li class="menu-item"><a href="" class="menu-item-link">Продвижение</a></li>
-                            <li class="menu-item"><a href="" class="menu-item-link">Контакты</a></li>
-                            <li class="menu-item"><a href="" class="menu-item-link">Оставить заявку</a></li>
+                            <li class="menu-item menu-mob-item"><a href="about" class="menu-item-link">О КОМПАНИИ</a></li>
+                            <li class="menu-item menu-mob-item"><a href="create" class="menu-item-link">Разработка сайтов</a></li>
+                            <li class="menu-item menu-mob-item"><a href="projects" class="menu-item-link">Проекты</a></li>
+                            <li class="menu-item menu-mob-item"><a href="contacts" class="menu-item-link">Контакты</a></li>
+                            <li class="menu-item"><p class="menu-item-link popup-btn">Оставить заявку</p></li>
                             <button class="btn menu-mob-call popup-btn">Оставить заявку</button>
                             <div class="menu-mob-items">
                                 <div class="menu-mob-item">
@@ -48,7 +48,7 @@
                                     <path fill-rule="evenodd" clip-rule="evenodd" d="M3.13534 0.50467C3.24922 0.320409 3.45039 0.208252 3.66699 0.208252H10.3337C10.5502 0.208252 10.7514 0.320409 10.8653 0.50467C10.9792 0.68893 10.9896 0.919019 10.8927 1.11276L10.2897 2.31877C10.0427 2.81284 9.53766 3.12492 8.98533 3.12492H5.01535C4.46298 3.12492 3.95801 2.81284 3.71098 2.31877L3.10798 1.11276C3.0111 0.919019 3.02146 0.68893 3.13534 0.50467ZM4.67827 1.45825L4.82902 1.75975C4.86431 1.83034 4.93644 1.87492 5.01535 1.87492H8.98533C9.06424 1.87492 9.13633 1.83034 9.17166 1.75975L9.32241 1.45825H4.67827Z"/>
                                     <path fill-rule="evenodd" clip-rule="evenodd" d="M4.70898 16.6665C4.70898 16.3213 4.98881 16.0415 5.33398 16.0415H8.66732C9.01248 16.0415 9.29232 16.3213 9.29232 16.6665C9.29232 17.0117 9.01248 17.2915 8.66732 17.2915H5.33398C4.98881 17.2915 4.70898 17.0117 4.70898 16.6665Z"/>
                                 </svg>
-                                <h5 class="call-number">8 495 357-94-35</h5>
+                                <a href="tel:89166939393" class="call-number">+7 916 693-93-93</a>
                             </div>
                             <button class="menu-mob-btn">
                                 <div class="menu-mob-btn-line" id="hamburger-6">
@@ -77,7 +77,7 @@
                 </div>
                 
             </section>
-            <section class="about">
+            <section class="about" id="about">
                 <div class="container">
                     <div class="about-text-block">
                         <h2 class="about-title">Чем мы<br>занимаемся?</h2>
@@ -179,7 +179,7 @@
                     </div>
                 </div>
             </section>
-            <section class="create">
+            <section class="create" id="create">
                 <div class="container">
                     <div class="create-text-block">
                         <h2 class="create-title">Этапы создания</h2>
@@ -351,7 +351,7 @@
                 </div>
                 
             </section>
-            <section class="projects">
+            <section class="projects" id="projects">
                 <div class="container">
                     <h2 class="projects-title">Наши проекты</h2>
                     <div class="projects-items-block">
@@ -409,7 +409,7 @@
                     </div>
                 </div>
             </section>
-            <section class="contacts">
+            <section class="contacts" id="contacts">
                 <div class="container">
                     <svg class="contacts-background" viewBox="0 0 415 356" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M274.861 172.162C274.861 172.162 263.992 180.629 261.818 186.235C259.644 191.841 255.411 198.934 255.411 198.934L264.793 210.261L267.653 208.545C267.653 208.545 275.662 197.447 277.721 186.349C279.666 175.251 276.234 170.103 274.861 172.162Z" fill="#FFA800" stroke="#222222" stroke-miterlimit="10" stroke-linejoin="round"/>
@@ -458,15 +458,15 @@
                     </svg>                    
                     <div class="contacts-form-block">
                         <h2 class="contacts-title">Свяжитесь с нами</h2>
-                        <form action="" class="contacts-form">
+                        <form class="contacts-form contacts-main-form">
                             <div class="contacts-input-block">
-                                <input type="text" placeholder="Ваше имя">
-                                <input type="email" placeholder="E-mail">
-                                <input type="text" placeholder="Адрес сайта">
-                                <input type="tel" placeholder="Телефон" class="tel">
+                                <input type="text" name="name" placeholder="Ваше имя" autocomplete="off">
+                                <input type="email" name="email" placeholder="E-mail" autocomplete="off">
+                                <input type="text" name="address" placeholder="Адрес сайта" autocomplete="off">
+                                <input type="tel" name="tel" placeholder="Телефон" class="tel" autocomplete="off">
                                 <div class="error"></div>
                             </div>
-                            <textarea placeholder="Комментарий"></textarea>
+                            <textarea name="textarea" placeholder="Комментарий"></textarea>
                             <div class="contacts-form-send-block">
                                 <button class="form-btn" type="submit">Отправить</button>
                                 <p class="form-policy">Нажимая на кнопку, вы даете согласие на обработку своих персональных данных</p>
@@ -476,7 +476,7 @@
                     <div class="contacts-items-block">
                         <div class="contact-item">
                             <p class="contacts-item-text">Звоните:</p>
-                            <h3 class="contacts-item-title">8 495 357-94-35</h3>
+                            <a href="tel:89166939393" class="contacts-item-title">8 495 357-94-35</a>
                         </div>
                         <div class="contact-item">
                             <p class="contacts-item-text">Пишите:</p>
@@ -496,23 +496,24 @@
 					</div>
 					<div class="contacts-form-block">
 						<h2 class="contacts-title">Оставьте заявку <br> и мы свяжемся с вами</h2>
-						<form action="#" class="contacts-form">
+						<form class="contacts-form contacts-popup-form">
 							<div class="contacts-input-block">
 								<input type="text" placeholder="Ваше имя">
 								<input type="email" placeholder="E-mail">
 								<input type="text" placeholder="Адрес сайта">
-								<input type="tel" placeholder="Телефон" class="tel">
+                                <input type="tel" placeholder="Телефон" class="tel">
+                                <div class="error"></div>
 							</div>
 							<textarea placeholder="Комментарий"></textarea>
 							<div class="popup-check">
-								<div class="popup-radio">
+								<!-- <div class="popup-radio">
 									<input type="radio" id="radio1" checked><label for="radio1">Разработка сайта</label>
 									<input type="radio" id="radio2"><label for="radio2">Продвижение</label>
-								</div>
-								<div class="popup-file">
+								</div> -->
+								<!-- <div class="popup-file">
 									<input type="file" id="file1">
 									<label for="file1">Прикрепить файл</label>
-								</div>
+								</div> -->
 							</div>
 							<div class="contacts-form-send-block">
 								<button class="form-btn" type="submit">Оставить заявку</button>
@@ -524,8 +525,9 @@
                 </div>
                 <div class="form-popup-content">
                     <div class="form-popup-close">
-						<!-- <img src="assets/svg/close-icon.svg" alt="close"> -->
-					</div>
+						<img src="assets/svg/close-icon.svg" alt="close">
+                    </div>
+                    <h3 class="form-popup-text"></h3>
                 </div>
 			</div>
         </main>

@@ -1075,6 +1075,9 @@
 			gap: 20px;
 			flex-wrap: wrap;
 			input {
+				@include text;
+				font-family: $font-text;
+				color: $color-light-m;
 				border: none;
 				background: transparent;
 				padding-bottom: 10px;
@@ -1086,6 +1089,8 @@
 				@media screen and (max-width: 620px) {
 					width: 100%;
 					height: 29px;
+					font-size: 14px;
+					line-height: 19px;
 				}
 			}
 			.error {
@@ -1105,18 +1110,22 @@
 		}
 
 		textarea {
+			@include text;
+			font-family: $font-text;
+			color: $color-light-m;
 			width: 580px;
 			height: 142px;
 			border: none;
 			border: none;
-			margin-top: 60px;
+			margin-top: 30px;
 			resize: none;
 			outline: transparent;
 			padding-top: 10px;
 			box-sizing: border-box;
-			&:focus {
-				border: 1px solid $color-black-xl;
-			}
+			border: 1px solid $color-black-xl;
+			// &:focus {
+			// 	border: 1px solid $color-black-xl;
+			// }
 
 			&::placeholder {
 				text-decoration: underline;
@@ -1210,6 +1219,8 @@
 			color: $color-light-m;
 		}
 		.contacts-item-title {
+			text-decoration: none;
+			display: block;
 			@include h-3;
 			font-family: $font-title;
 			color: $color-black-xl;
@@ -1297,6 +1308,21 @@
 }
 
 .popup-content {
+	display: none;
+	background: $color-light-xl;
+	border-radius: 30px;
+	max-width: 780px;
+	width: 100%;
+	padding: 70px 100px;
+	box-sizing: border-box;
+	max-width: 780px;
+	overflow: auto;
+	z-index: 120;
+	position: relative;
+}
+
+.form-popup-content {
+	display: none;
 	background: $color-light-xl;
 	border-radius: 30px;
 	max-width: 780px;
@@ -1314,6 +1340,19 @@
     right: 30px;
     cursor: pointer;
     top: 30px;
+}
+
+.form-popup-close {
+    position: absolute;
+    right: 30px;
+    cursor: pointer;
+    top: 30px;
+}
+
+.form-popup-text {
+	@include h-3;
+	font-family: $font-title;
+	color: $color-light-m;
 }
 
 .popup-check {

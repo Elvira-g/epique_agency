@@ -1,20 +1,36 @@
 const menuBtn = document.querySelector('.menu-mob-btn');
+const menuIcons = document.querySelectorAll('.menu-mob-item');
 const icon = document.querySelector('.menu-mob-btn-line');
 const menuBlock = document.querySelector('.menu-list');
+const sections = document.querySelectorAll('section');
 
 icon.addEventListener('click', function () {
-    if(this.classList.contains('is-active')){
-        this.classList.remove('is-active');
-        menuBlock.style.height = null;
-        menuBlock.style.padding = null;
+    if(icon.classList.contains('is-active')){
+        closeMobMenu();
     } else {
-        this.classList.add('is-active');
-        menuBlock.style.height = '100%';
-        menuBlock.style.paddingTop = '47px';
-        menuBlock.style.paddingRight = '20px';
-        menuBlock.style.paddingBottom= '0';
-        menuBlock.style.paddingLeft = '20px';
+        openMobMenu();
     }
+})
+
+menuIcons.forEach((item) => {
+    item.addEventListener('click', (e) => {
+        e.preventDefault();
+        const clickedItem = e.target;
+        const clickedLink = clickedItem.attributes.href.value;
+        if (screen.width <= 1024) {
+            if(menuBtn.classList.contains('opened')){
+                closeMobMenu();
+            } else {
+                openMobMenu();
+            }  
+        }
+        sections.forEach((section) => {
+            if( section.id === clickedLink ) {
+                const height = section.offsetTop - 60;
+                window.scroll(0, height);
+            }
+        })
+    })
 })
 
 //popup
@@ -37,8 +53,10 @@ popupClose.addEventListener('click', () => {
 })
 
 popupBlock.addEventListener('click', (e) => {
-    if ( !e.target.classList.contains('popup-content') ) {
+    if ( e.target.classList.contains('popup') ) {
         popupBlock.style.display = 'none';
+        formPopupWindow.style.display = 'none';
+        popupWindow.style.display = 'none';
     }
 })
 
@@ -118,17 +136,20 @@ principlesItem.forEach((item) => {
 })
 
 
-//form
+//main form
 
-const mainForm = document.querySelector('.contacts-form');
-// const formPopup;
+const mainForm = document.querySelector('.contacts-main-form');
+const formPopupWindow = popupBlock.querySelector('.form-popup-content');
+const formPopupClose = formPopupWindow.querySelector('.form-popup-close');
+const formPopupText = formPopupWindow.querySelector('.form-popup-text');
 const inputs = document.querySelectorAll('.tel');
 
 mainForm.addEventListener('submit', function(e) {
+    e.preventDefault();
     const tel = mainForm.querySelector('.tel');
     const errorField = mainForm.querySelector('.error');
-    if (tel.value == '' || tel.value.length < 12) {
-        showError(errorField, 'Заполните поле');   
+    if (tel.value == '' || tel.value.length < 12 ) {
+        showError(errorField, 'Номер телефона указан неверно');   
     } else {
         const formData = new FormData(mainForm);
         const object = {};
@@ -143,11 +164,12 @@ mainForm.addEventListener('submit', function(e) {
         .then((result) => result.ok === true ? result.json() : false)
         .then((data) => {
             console.log("Success", data);
-            contactModal.style.display = 'flex';
+            popupBlock.style.display = 'flex';
+            formPopupWindow.style.display = 'block';
             showMassage('Спасибо за обращение! Мы свяжемся с вами в ближайшее время.');   
         })
         .then(()=> {
-            const inputs = contactsForm.querySelectorAll('input');
+            const inputs = mainForm.querySelectorAll('input');
             inputs.forEach((input) => {
                 input.value = '';
             })
@@ -155,6 +177,68 @@ mainForm.addEventListener('submit', function(e) {
         .catch(error => console.error("Error", error))
     }
 })
+
+formPopupClose.addEventListener('click', () => {
+    popupBlock.style.display = 'none';
+    formPopupWindow.style.display = 'none';
+})
+
+
+//popup form
+
+const popupForm = document.querySelector('.contacts-popup-form');
+popupForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+    const tel = popupForm.querySelector('.tel');
+    const errorField = popupForm.querySelector('.error');
+    if (tel.value == '' || tel.value.length < 12 ) {
+        showError(errorField, 'Номер телефона указан неверно');   
+    } else {
+        const formData = new FormData(popupForm);
+        const object = {};
+        formData.forEach(function(value, key){
+            object[key] = value;
+        });
+        fetch('send_mail.php', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(object)
+        })
+        .then((result) => result.ok === true ? result.json() : false)
+        .then((data) => {
+            console.log("Success", data);
+            popupBlock.style.display = 'flex';
+            formPopupWindow.style.display = 'block';
+            showMassage('Спасибо за обращение! Мы свяжемся с вами в ближайшее время.');   
+        })
+        .then(()=> {
+            const inputs = mainForm.querySelectorAll('input');
+            inputs.forEach((input) => {
+                input.value = '';
+            })
+        })
+        .catch(error => console.error("Error", error))
+    }
+})
+
+
+
+function openMobMenu() {
+    icon.classList.add('is-active');
+    menuBtn.classList.add('opened');
+    menuBlock.style.height = '100%';
+    menuBlock.style.paddingTop = '47px';
+    menuBlock.style.paddingRight = '20px';
+    menuBlock.style.paddingBottom= '0';
+    menuBlock.style.paddingLeft = '20px';
+}
+
+function closeMobMenu() {
+    icon.classList.remove('is-active');
+    menuBtn.classList.remove('opened');
+    menuBlock.style.height = null;
+    menuBlock.style.padding = null;
+}
 
 function showError (field, message) {
     field.innerHTML = message;
@@ -168,15 +252,7 @@ function removeError () {
 }
 
 function showMassage(message) {
-    contactModalText.innerHTML = `
-    <h2 class="modal-contact-title">${message}</h2>
-    <p class="section-text" data='modal-reply-2'>Мы свяжемся с Вами в ближайшее время.</p>
-    <button class="btn-orange modal-contact-back-btn" data='modal-back'>Вернуться на главную</button>`
-    
-    const contactModalBackBtn = document.querySelector('.modal-contact-back-btn');
-    contactModalBackBtn.addEventListener('click', () => {
-        location.href='index.php';
-    })
+    formPopupText.innerHTML = message;
 }
 
 inputs.forEach((input) => {
@@ -185,3 +261,32 @@ inputs.forEach((input) => {
         removeError(e.target);
     })
 })
+
+const phone_inputs = document.querySelectorAll('.tel');
+for (let elem of phone_inputs) {
+    for (let ev of ['input', 'blur', 'focus']) {
+        elem.addEventListener(ev, eventCalllback);
+    }
+}
+
+function eventCalllback (e) {
+    let el = e.target,
+    clearVal = el.dataset.phoneClear,
+    pattern = el.dataset.phonePattern,
+    matrix_def = "+7(___)___-__-__",
+    matrix = pattern ? pattern : matrix_def,
+    i = 0,
+    def = matrix.replace(/\D/g, ""),
+    val = e.target.value.replace(/\D/g, "");
+     
+    if (clearVal !== 'false' && e.type === 'blur') {
+        if (val.length < matrix.match(/([\_\d])/g).length) {
+            e.target.value = '';
+            return;
+        }
+    }
+    if (def.length >= val.length) val = def;
+    e.target.value = matrix.replace(/./g, function (a) {
+        return /[_\d]/.test(a) && i < val.length ? val.charAt(i++) : i >= val.length ? "" : a
+    });
+}
