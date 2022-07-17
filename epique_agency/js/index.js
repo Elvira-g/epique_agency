@@ -14,7 +14,7 @@ icon.addEventListener('click', function () {
 
 menuIcons.forEach((item) => {
     item.addEventListener('click', (e) => {
-        e.preventDefault();
+        // e.preventDefault();
         const clickedItem = e.target;
         const clickedLink = clickedItem.attributes.href.value;
         if (screen.width <= 1024) {
@@ -24,12 +24,12 @@ menuIcons.forEach((item) => {
                 openMobMenu();
             }  
         }
-        sections.forEach((section) => {
-            if( section.id === clickedLink ) {
-                const height = section.offsetTop - 60;
-                window.scroll(0, height);
-            }
-        })
+        // sections.forEach((section) => {
+        //     if( section.id === clickedLink ) {
+        //         const height = section.offsetTop - 60;
+        //         window.scroll(0, height);
+        //     }
+        // })
     })
 })
 
@@ -42,21 +42,27 @@ const popupClose = document.querySelector('.popup-close');
 
 popupBtn.forEach((item) => {
     item.addEventListener('click', () => {
+        popupWindow.style.animationName = 'modal';
         popupBlock.style.display = 'flex';
         popupWindow.style.display = 'block';
     })
 })
 
 popupClose.addEventListener('click', () => {
-    popupBlock.style.display = 'none';
-    popupWindow.style.display = 'none';
+    // popupBlock.style.display = 'none';
+    // popupWindow.style.display = 'none';
+    popupWindow.style.animationName = 'modal-close';
+    setTimeout(() => popupBlock.style.display = 'none', 400);
 })
 
 popupBlock.addEventListener('click', (e) => {
     if ( e.target.classList.contains('popup') ) {
-        popupBlock.style.display = 'none';
-        formPopupWindow.style.display = 'none';
-        popupWindow.style.display = 'none';
+        // popupBlock.style.display = 'none';
+        // formPopupWindow.style.display = 'none';
+        // popupWindow.style.display = 'none';
+        formPopupWindow.style.animationName = 'modal-close';
+        popupWindow.style.animationName = 'modal-close';
+        setTimeout(() => popupBlock.style.display = 'none', 400);
     }
 })
 
@@ -207,8 +213,10 @@ popupForm.addEventListener('submit', function(e) {
         .then((result) => result.ok === true ? result.json() : false)
         .then((data) => {
             console.log("Success", data);
-            popupBlock.style.display = 'flex';
-            formPopupWindow.style.display = 'block';
+            popupWindow.style.animationName = 'modal-close';
+            setTimeout(() => formPopupWindow.style.animationName = 'modal-close', 400);
+            // popupBlock.style.display = 'flex';
+            // formPopupWindow.style.display = 'block';
             showMassage('Спасибо за обращение! Мы свяжемся с вами в ближайшее время.');   
         })
         .then(()=> {

@@ -108,6 +108,7 @@
 			&:nth-child(5) {
 				.menu-item-link {
 					color: $color-primary;
+					animation: call-btn 2.5s infinite ease-in-out;
 				}
 			}
 			&:nth-child(5):hover {
@@ -294,3 +295,17 @@
 	transform: translateY(-13px) rotate(90deg);
 }
 
+
+
+@keyframes call-btn {
+	0% {
+        color: $color-primary;
+    }
+    50% {
+        color: $color-primary-red;
+	}
+	
+	100% {
+		color: $color-primary;
+	}
+}

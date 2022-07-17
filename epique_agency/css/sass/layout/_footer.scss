@@ -21,13 +21,25 @@
 		flex-wrap: wrap;
 	}
 	.footer-nav-block {
-		@include flex-space;
+		@include flex-start;
+		align-items: flex-end;
+		gap: 30px;
 		width: 930px;
 		@media screen and (max-width: 1024px) {
 			width: auto;
 		}
 		.footer-logo {
 			width: 138px;
+		}
+		.rights-text-link {
+			text-decoration: none;
+			font-family: $font-text;
+			font-weight: 400;
+			font-size: 14px;
+			line-height: 19px;
+			color: $color-light-l;
+			padding-bottom: 8px;
+			box-sizing: border-box;
 		}
 		.footer-menu-list {
 			@include flex-center;
